@@ -1,0 +1,26 @@
+{% extends "base.html" %} 
+
+{% block content %}
+
+
+
+<div id="app">
+
+    <!-- Sidebar -->
+    {% include "sidebar.html" %}
+    <!-- End of Sidebar -->
+
+   {% block  contenido-principal %}
+   
+   {% endblock  %}
+
+       <!-- Footer -->
+        {% include "footer.html" %}
+       <!-- End of Footer -->
+    </div>
+
+</div>
+
+
+
+{% endblock %}
