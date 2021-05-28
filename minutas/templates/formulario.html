@@ -1,0 +1,77 @@
+{% extends "main.html" %}
+
+{% block contenido-principal %}
+
+
+<div class="page-heading">
+    <h3>{{titulo}} </h3>
+</div>
+
+<section class="section">
+    <div class="card">
+
+        <div class="card-body">
+            <div class="row">
+
+                <form action="{% url 'minutas.guardar'%} " method="POST">
+                    {% csrf_token %}
+
+                    <div class="col-md-12">
+                        <input type="hidden" name="minuta_id" value="{{minuta_id}}">
+
+                        <div class="form-group">
+                            <label for="helpInputTop">Titulo</label>
+                            <input type="text" class="form-control" id="helpInputTop" name="titulo"
+                                placeholder=" Ingrese titulo de minuta" required value="{{minuta.titulo}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="helpInputTop">Secretario</label>
+                            <input type="textarea" class="form-control" id="helpInputTop" name="secretario"
+                                placeholder=" Ingrese el nombre del secretario" required value="{{minuta.secretario}}">
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Texto </label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="8"
+                                name="texto" required>{{minuta.texto}}</textarea>
+                        </div>
+
+                        <div class="col-md-2">
+                            <div>
+                                <label for="helpInputTop">Fecha de reunion</label>
+                                <input type="text" class="form-control" id="helpInputTop" name="fecha_reunion" required value="{{minuta.fecha_reunion}}">
+                            </div>
+                            <div>
+                                <label for="helpInputTop">Hora de inicio</label>
+                                <input type="text" class="form-control" id="helpInputTop" name="hora_inicio" required value="{{minuta.hora_inicio}}">
+                            </div>
+                            <div>
+                                <label for="helpInputTop">Hora de Fin</label>
+                                <input type="text" class="form-control" id="helpInputTop" name="hora_fin" required value="{{minuta.hora_fin}}">
+                            </div>
+
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Asistentes </label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"
+                                    name="asistentes" required>{{minuta.asistentes}}</textarea>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <button class="btn btn-success mt-4" type="submit">Guardar</button>
+                </form>
+
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+{% endblock %}

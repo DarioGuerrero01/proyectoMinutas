@@ -1,16 +1,16 @@
+{% load static %}
 <div id="sidebar" class="active">
   <div class="sidebar-wrapper active">
     <div class="sidebar-header">
       <div class="d-flex justify-content-between">
         <div class="logo">
-          <a href="index.html"
-            ><img src="assets/images/logo/logo.png" alt="Logo" srcset=""
+          <a href="index.html"><img src="{%static 'images/logo.png' %}" alt="Logo" srcset=""
           /></a>
         </div>
         <div class="toggler">
-          <a href="#" class="sidebar-hide d-xl-none d-block"
-            ><i class="bi bi-x bi-middle"></i
-          ></a>
+          <a href="#" class="sidebar-hide d-xl-none d-block">
+            <i class="fas fa-times"></i>
+          </a>
         </div>
       </div>
     </div>
@@ -19,17 +19,17 @@
         <li class="sidebar-title">Menu</li>
 
 
-        <li class="sidebar-item active">
-          <a href="#" class="sidebar-link">
-            <i class="bi bi-grid-fill"></i>
+        <li class="sidebar-item ">
+          <a href="{%url 'tablero.inicio'%}" class="sidebar-link">
+            <i class="fas fa-home"></i>
             <span>Tablero</span>
           </a>
         </li>
 
        
         <li class="sidebar-item">
-          <a href="#" class="sidebar-link">
-            <i class="bi bi-life-preserver"></i>
+          <a href= "{% url 'minutas.listado'%}" class="sidebar-link">
+            <i class="fas fa-file-alt"></i>
             <span>Minutas</span>
           </a>
         </li>

@@ -1,0 +1,78 @@
+{% extends "main.html" %}
+
+{% block contenido-principal %}
+
+<div class="page-heading">
+    <h3>uscar minuta </h3>
+</div>
+
+<!-- Basic Tables start -->
+<section class="section">
+    <div class="row" id="basic-table">
+        <div class="col-12 col-md-12">
+            <div class="card">
+                <div class="card-header">
+
+                    <form action="{%url 'minutas.resultado' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Ingresa texto a Buscar</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" name="busqueda" required
+                                rows="4">
+                                            </textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" required>Buscar</button>
+                    </form>
+
+                   
+                </div>
+                <h4 class="mt-4">{{subtitulo}}</h4>
+
+                <div class="card-content">
+                    <div class="card-body">
+
+                        <!-- Table with outer spacing -->
+                        <div class="table-responsive">
+                            <table class="table table-lg">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Titulo</th>
+                                        <th>Secretario</th>
+                                        <th>Fecha de Reunion</th>
+                                        <th>Hora Inicio</th>
+                                        <th>Hora Fin</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for minuta in minutas%}
+                                    <tr>
+                                        <td class="text-bold-500">{{forloop.counter}}</td>
+                                        <td class="text-bold-500">{{minuta.titulo}}</td>
+                                        <td class="text-bold-500">{{minuta.secretario}}</td>
+                                        <td class="text-bold-500">{{minuta.fecha_reunion}}</td>
+                                        <td class="text-bold-500">{{minuta.hora_inicio}}</td>
+                                        <td class="text-bold-500">{{minuta.hora_fin}}</td>
+                                        <td class="text-bold-500">
+
+                                            <a href="{%url 'minutas.ver' minuta.id %}" class="btn btn-primary">
+                                                <i class="fas fa-eye"></i>
+                                            </a>
+
+                                        </td>
+
+                                    </tr>
+                                    {% endfor%}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Basic Tables end -->
+
+{% endblock %}

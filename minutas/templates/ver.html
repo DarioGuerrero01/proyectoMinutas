@@ -1,0 +1,48 @@
+{% extends "main.html" %}
+
+{% block contenido-principal %}
+
+    <div class="page-heading">
+        <h3>{{titulo}} </h3>
+    </div>
+
+    <div class="col-6">
+  <div class="card shadow mb-4">
+    <!-- Card Header - Dropdown -->
+    <div
+      class=" card-header py-3 d-flex flex-row align-items-center justify-content-between">
+      <h4 class="m-0 font-weight-bold text-primary">
+        Asistentes : {{minuta.asistentes}}
+      </h4>
+
+      <div style="display: flex; flex-direction: column; text-align: right">
+        <h6>
+          <span style="font-weight: bold">Secretario :</span>
+          {{minuta.secretario}}
+        </h6>F
+        <h6>
+          <span style="font-weight: bold">Fecha :</span>
+          {{minuta.fecha_reunion}}
+        </h6>
+        <h6>
+          <span style="font-weight: bold">Hora Inicio :</span>
+          {{minuta.hora_inicio}}
+        </h6>
+        <h6>
+          <span style="font-weight: bold">Hora Fin :</span> {{minuta.hora_fin}}
+        </h6>
+      </div>
+    </div>
+    <!-- Card Body -->
+    <div class="card-body">
+      {{minuta.texto}}
+
+      <div
+        class="py-3 d-flex flex-row align-items-center justify-content-between"
+      ></div>
+    </div>
+  </div>
+</div>
+
+     
+{% endblock %}

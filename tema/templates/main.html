@@ -10,13 +10,16 @@
     {% include "sidebar.html" %}
     <!-- End of Sidebar -->
 
-   {% block  contenido-principal %}
-   
-   {% endblock  %}
+    <div id="main">
+        <header class="mb-3">
+            <a href="#" class="burger-btn d-block d-xl-none">
+                <i class="fas fa-align-justify"></i>
+            </a>
+        </header>
 
-       <!-- Footer -->
-        {% include "footer.html" %}
-       <!-- End of Footer -->
+    {% block contenido-principal %}
+    
+    {% endblock  %}
     </div>
 
 </div>
