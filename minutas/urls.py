@@ -1,5 +1,8 @@
-from django.urls import path
+from django.urls.conf import include
 from minutas import views
+from django.urls import path
+
+
 
 urlpatterns = [
   path('/', views.listado, name='minutas.listado'),
@@ -9,6 +12,9 @@ urlpatterns = [
   path('/editar/<int:id>', views.formularioEditar, name='minutas.editar'),
   path('/ver/<int:id>', views.ver, name='minutas.ver'),
   path('/busqueda/', views.formularioBusqueda, name='minutas.busqueda'),
-  path('/resultado/', views.resultadosBusqueda, name='minutas.resultado')
+  path('/resultado/', views.resultadosBusqueda, name='minutas.resultado'),
+  
+  
+
   
 ]
